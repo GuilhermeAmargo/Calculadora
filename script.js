@@ -1,3 +1,17 @@
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+
+    if (!isNaN(key) || key === '.') {
+        inputValue(key);
+    } else if (['+', '-', '*', '/'].includes(key)) {
+        setOperation(key);
+    } else if (key === 'Enter' || key === '=') {
+        calculateResult();
+    } else if (key === 'Escape') {
+        clearDisplay();
+    }
+});
+
 let currentInput = '0';
 let previousInput = '';
 let operation = null;
